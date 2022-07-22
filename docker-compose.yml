@@ -1,0 +1,14 @@
+version: "3"
+services:
+  react2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/usr/src/app
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    command: sh -c "cd react-sample && yarn start"
+    ports:
+      - "8080:8080"
+    tty: true
